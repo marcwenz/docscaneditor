@@ -20,6 +20,7 @@ Part two of two for my scanner application.
   + Automatically remove QR codes from the page
 - Commit individual documents
 - Commit all documents at once
+  This random addition
 
 ** What does part two do?
 It is the editor for the scanned documents. Part two receives the scanned images
