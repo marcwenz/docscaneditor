@@ -7,19 +7,22 @@ It is the editor for the scanned documents. Part two receives the scanned images
 and displays them to the user. Then the user can interact with the documents
 
 * Features roadmap
-- Editing features
-  + Split document
-  + Merge document to previous/next
-  + Merge multiple documents
-  + Delete page(s)
-  + Delete document(s)
-  + Rescan page(s)
-  + Rescan document(s)
-  + Crop page
-  + Rotate page
-  + Draw on page
-- Processing features
-  + Detect QR codes and split documents based on them
-  + Automatically remove QR codes from the page
-- Commit individual documents
-- Commit all documents at once
+*** Editing features [0/10]
+- [ ] Split document
+- [ ] Merge document to previous/next
+- [ ] Merge multiple documents
+- [ ] Delete page(s)
+- [ ] Delete document(s)
+- [ ] Rescan page(s)
+- [ ] Rescan document(s)
+- [ ] Crop page
+- [ ] Rotate page
+- [ ] Draw on page
+*** Processing features [0/2]
+ - [ ] Detect QR codes and split documents based on them
+ - [ ] Automatically remove QR codes from the page
+*** [ ] Commit individual documents
+*** [ ] Commit all documents at once
+ 
+* Problems
+None yet but that's just because I haven't started.
