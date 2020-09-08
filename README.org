@@ -1,9 +1,12 @@
 #+TITLE: Scanner Application Part two
 
-* Scanner App part two
 Part two of two for my scanner application.
 
-** Features roadmap
+* What does part two do?
+It is the editor for the scanned documents. Part two receives the scanned images
+and displays them to the user. Then the user can interact with the documents
+
+* Features roadmap
 - Editing features
   + Split document
   + Merge document to previous/next
@@ -20,8 +23,3 @@ Part two of two for my scanner application.
   + Automatically remove QR codes from the page
 - Commit individual documents
 - Commit all documents at once
-  This random addition
-
-** What does part two do?
-It is the editor for the scanned documents. Part two receives the scanned images
-and displays them to the user. Then the user can interact with the documents
