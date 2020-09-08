@@ -8,6 +8,7 @@ class LargePreview(QtWidgets.QLabel):
         self.setStyleSheet("border: 1px solid black;background:red")
         self.button = QtWidgets.QPushButton("add doc", self)
         self.button.clicked.connect(self.addDocument)
+        self.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
 
     def addDocument(self):
         print("added")
@@ -17,4 +18,4 @@ class LargePreview(QtWidgets.QLabel):
         # self.setPixmap(pix)
 
     def sizeHint(self):
-        return QtCore.QSize(100, 900)
+        return QtCore.QSize(600, 900)

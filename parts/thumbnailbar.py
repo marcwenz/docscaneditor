@@ -9,14 +9,16 @@ class ThumbnailBar(QtWidgets.QScrollArea):
             self, QtWidgets.QScroller.LeftMouseButtonGesture)
         self.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         # self.setMinimumHeight(1080)
+        self.setMinimumWidth(174)
 
         self.widget = QtWidgets.QWidget(self)
         self.setWidget(self.widget)
         self.containerLayout = QtWidgets.QVBoxLayout(self.widget)
+        self.containerLayout.setContentsMargins(0, 0, 0, 0)
         self.vertLayout = QtWidgets.QVBoxLayout()
-        self.vertLayout.setContentsMargins(0, 0, 0, 0)
+        self.vertLayout.setContentsMargins(10, 10, 10, 0)
         self.vertLayout.setSpacing(0)
-        self.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        self.setSizePolicy(QSizePolicy.Maximum, QSizePolicy.Expanding)
 
         self.containerLayout.addLayout(self.vertLayout)
         spacer = QtWidgets.QSpacerItem(0, 0, QSizePolicy.Expanding, QSizePolicy.Expanding)
@@ -24,18 +26,21 @@ class ThumbnailBar(QtWidgets.QScrollArea):
 
         self.setWidgetResizable(True)
 
-    def addThumbnail(self, im):
-        self.vertLayout.addWidget(ThumbnailElement(im, width=150))
+    def addThumbnail(self, im, ix):
+        th = ThumbnailElement(im, ix, width=150, parent=self)
+        th.mousePressEvent = lambda _: self.propagateClick(th)
+        self.vertLayout.addWidget(th)
 
-    def propagateClick(self, name):
-        self.parent().updateDisplay(self.vertLayout.findChild(QtWidgets.QLabel, name))
+    def propagateClick(self, th):
+        self.parent().thumbnailClicked(th)
 
 class ThumbnailElement(QtWidgets.QLabel):
-    def __init__(self, im, width=None, height=None, parent=None):
+    def __init__(self, im, ix=None, width=None, height=None, parent=None):
         super().__init__(parent=parent)
         self.setObjectName(im[0])
+        self.index = ix
 
-        self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        self.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         if width:
             img = QtGui.QPixmap.fromImage(im[1]).scaledToWidth(width)
         elif height:
@@ -44,9 +49,3 @@ class ThumbnailElement(QtWidgets.QLabel):
         self.setPixmap(img)
         self.setStyleSheet("border: 1px solid black; \
                            background-color: transparent")
-
-        self.mousePressEvent = self.updateDisplay
-
-    def updateDisplay(self):
-        self.parent().propagateClick(self)
-
