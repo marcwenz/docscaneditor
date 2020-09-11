@@ -4,7 +4,8 @@ Part two of two for my scanner application.
 
 * What does part two do?
 It is the editor for the scanned documents. Part two receives the scanned images
-and displays them to the user. Then the user can interact with the documents
+and displays them to the user. User can interact with the documents and commit
+them to the scan folder
 
 * Features roadmap
 *** Editing features [0/10]
@@ -18,9 +19,14 @@ and displays them to the user. Then the user can interact with the documents
 - [ ] Crop page
 - [ ] Rotate page
 - [ ] Draw on page
-*** Processing features [0/2]
+*** Processing features [0/3]
  - [ ] Detect QR codes and split documents based on them
  - [ ] Automatically remove QR codes from the page
+*** Configuration [0/4]
+- [ ] Change layout of ui elements
+- [ ] Change order of editing buttons
+- [ ] Change size of display grid
+- [ ] Resize ui elements
 *** [ ] Commit individual documents
 *** [ ] Commit all documents at once
  
